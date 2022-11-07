@@ -15,7 +15,7 @@ def call() {
         stage('terraform '){
         steps{
             
-            sh "git clone https://github.com/singusandeep/terra/"
+            sh "git pull https://github.com/singusandeep/terra/"
         
         }
             
