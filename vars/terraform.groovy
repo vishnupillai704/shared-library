@@ -19,14 +19,14 @@ def call() {
 
             stage('terraform init') {
         steps {   
-          dir(C:\Users\VIPILLAI\.jenkins\workspace\shared\terraform\){                                                
+          dir(C:/Users/VIPILLAI/.jenkins/workspace/shared/terraform/){                                                
             sh 'terraform init'
           }
          }
     }
         stage('terraform apply') {
         steps {
-             dir(C:\Users\VIPILLAI\.jenkins\workspace\shared\terraform\){  
+             dir(C:/Users/VIPILLAI/.jenkins/workspace/shared/terraform/){  
             withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]){
             sh 'aws --version'
             
