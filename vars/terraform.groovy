@@ -1,5 +1,5 @@
-def call(){
-  sh "echo hello"
+def call() {
+  sh "echo hello world"
   
 //   pipeline {
 //     agent any
