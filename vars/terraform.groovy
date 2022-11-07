@@ -10,25 +10,23 @@ def call() {
     stages {
         stage('terraform '){
         steps{
-            dir('/var/lib/jenkins/workspace/terra/terraform') {
-            sh "git pull https://github.com/vishnupillai704/terraform/ "
-        }
+            
+            sh "git clone https://github.com/vishnupillai704/terraform/ "
+        
         }
             
         }
 
             stage('terraform init') {
-        steps {
-            dir('/var/lib/jenkins/workspace/terra/terraform') {
-            
-            
+        steps {   
+             dir('C:\Users\VIPILLAI\.jenkins\workspace\shared\terraform') {                                                       
             sh 'terraform init'
             }
          }
     }
         stage('terraform apply') {
         steps {
-            dir('/var/lib/jenkins/workspace/terra/terraform') {
+             dir('C:\Users\VIPILLAI\.jenkins\workspace\shared\terraform') {
             withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]){
             sh 'aws --version'
             
