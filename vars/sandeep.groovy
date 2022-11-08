@@ -25,14 +25,14 @@ def call() {
 
            stage('terraform init') {
         steps {   
-            dir('/var/lib/jenkins/workspace/sharedlibrari/terra') {                                            
+            dir('/var/lib/jenkins/workspace/sharedlib/terra') {                                            
             sh 'terraform init'
             }
          }
     }
         stage('terraform apply') {
         steps {
-            dir('/var/lib/jenkins/workspace/sharedlibrari/terra') { 
+            dir('/var/lib/jenkins/workspace/sharedlib/terra') { 
             withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS-sandeep', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]){
             sh 'aws --version'
             
