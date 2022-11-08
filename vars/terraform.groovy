@@ -38,8 +38,10 @@ def call() {
     } 
        stage('terraform destroy') {
         steps {   
-             dir('/var/lib/jenkins/workspace/sharred/terraform') {                                           
-              sh 'terraform destroy'
+             dir('/var/lib/jenkins/workspace/sharred/terraform') {
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]){
+              sh 'terraform destroy -force -var AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -var AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY'
+                }
              }
          }
     }
