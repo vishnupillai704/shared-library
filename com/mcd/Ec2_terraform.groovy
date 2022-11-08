@@ -1,3 +1,4 @@
+package com.mcd
 def call() {
   
   pipeline {
