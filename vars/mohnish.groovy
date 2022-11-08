@@ -13,7 +13,7 @@ pipeline {
         stage('build'){
             steps{
                 
-                sh "git pull https://github.com/MohnishBhonde/terraform"
+                sh "git clone https://github.com/MohnishBhonde/terraform"
                 
             
         }
