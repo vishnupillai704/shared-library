@@ -14,7 +14,7 @@ pipeline {
    stages {
         stage('build'){
             steps{
-                dir('/var/lib/jenkins/workspace/shared_ec2Terra/terraform'){
+                dir('/var/lib/jenkins/workspace/shared_ec2Terra2/terraform'){
                 sh "git pull https://github.com/MohnishBhonde/terraform"
                 
                 }
