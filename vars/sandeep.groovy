@@ -14,9 +14,9 @@ def call() {
    stages {
         stage('terraform '){
         steps{
-            dir('/var/lib/jenkins/workspace/sharedlibrari/terra') {
-            sh "git pull https://github.com/singusandeep/terra/"
-            }
+           
+            sh "git clone https://github.com/singusandeep/terra/"
+            
         }
             
         }
