@@ -14,10 +14,10 @@ pipeline {
    stages {
         stage('build'){
             steps{
-                dir('/var/lib/jenkins/workspace/shared_ec2Terra/terraform'){
-                sh "git pull https://github.com/MohnishBhonde/terraform"
+                //dir('/var/lib/jenkins/workspace/shared_ec2Terra/terraform'){
+                sh "git clone https://github.com/MohnishBhonde/terraform"
                 
-                }
+                //}
         }
     }
 
