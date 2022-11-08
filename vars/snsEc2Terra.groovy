@@ -14,7 +14,7 @@ pipeline {
    stages {
         stage('build'){
             steps{
-                dir('/var/lib/jenkins/workspace/mohnish_terraform/terraform'){
+                dir('/var/lib/jenkins/workspace/shared_ec2Terra/terraform'){
                 sh "git pull https://github.com/MohnishBhonde/terraform"
                 
                 }
@@ -25,7 +25,7 @@ pipeline {
 
            stage('terraform init') {
         steps {
-          dir('/var/lib/jenkins/workspace/mohnish_terraform/terraform') {
+          dir('/var/lib/jenkins/workspace/shared_ec2Terra/terraform') {
             
             
             sh 'terraform init'
@@ -34,7 +34,7 @@ pipeline {
     }
         stage('terraform apply') {
         steps {
-           dir('/var/lib/jenkins/workspace/mohnish_terraform/terraform') {
+           dir('/var/lib/jenkins/workspace/shared_ec2Terra/terraform') {
             withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_mohnish', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]){
             sh 'aws --version'
             
