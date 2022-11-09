@@ -1,3 +1,4 @@
+def runPipeline(){
 pipeline {
     agent any
 
@@ -9,27 +10,36 @@ pipeline {
         stage("Build") {
             steps {
                 
-                sh "ls -a"
-                sh "rm -rf *"
+                
                 sh "git clone https://github.com/vishnupillai704/Devops22"
                 
-                sh "ls -a"
+               
               
                 
-                sh "mvn -version"
-                sh " cd Devops22 && mvn clean install"
+                
             }
+         }
+        stage("mvn install"){
+            steps{
+                 dir('/var/lib/jenkins/workspace/shared-library_vish_CI/Devops22'){
+                  sh "mvn -version"
+                  sh "mvn clean install"
+                 }
             }
+        }
+        
             stage("mvn package"){
                 steps{
-                    sh " cd Devops22 && mvn package"
+                    dir('/var/lib/jenkins/workspace/shared-library_vish_CI/Devops22'){
+                    sh "mvn package"
+                    }
                 }
             }
             stage("server"){
                 steps{
                     rtServer (
                         id: "artifactory-server",
-                        url:'http://ec2-35-93-1-201.us-west-2.compute.amazonaws.com:8081/artifactory',
+                        url:'http://ec2-52-25-243-112.us-west-2.compute.amazonaws.com:8081/artifactory',
                         username:'jenkins',
                         password: "jenkins@123", 
                         bypassProxy: true,
@@ -65,3 +75,4 @@ pipeline {
     
         }
     }
+}
