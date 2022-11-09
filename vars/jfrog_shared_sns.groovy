@@ -17,10 +17,18 @@ pipeline {
        stage("mvn install"){
                 steps{
                     dir('/var/lib/jenkins/workspace/shared_jfrog_m/SNSImplemen'){
-                    sh "mvn package"
+                    sh "mvn -version"
+                  sh "mvn clean install"
                 }
             }
        }
+        stage("mvn package"){
+                steps{
+                    dir('/var/lib/jenkins/workspace/shared_jfrog_m/Devops22'){
+                    sh "mvn package"
+                    }
+                }
+            }
             stage("server"){
                 steps{
                     rtServer (
