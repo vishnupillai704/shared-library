@@ -14,9 +14,9 @@ def call() {
    stages {
         stage('terraform '){
         steps{
-           dir('/var/lib/jenkins/workspace/sharedlib/terra') { 
+           
             sh "git pull https://github.com/singusandeep/terra/"
-           }
+           
         }
             
         }
@@ -25,14 +25,14 @@ def call() {
 
            stage('terraform init') {
         steps {   
-            dir('/var/lib/jenkins/workspace/sharedlib/terra') {                                            
+            dir('/var/lib/jenkins/workspace/shared_pipeline_sandeep/terra') {                                            
             sh 'terraform init'
             }
          }
     }
         stage('terraform apply') {
         steps {
-            dir('/var/lib/jenkins/workspace/sharedlib/terra') { 
+            dir('/var/lib/jenkins/workspace/shared_pipeline_sandeep/terra') { 
             withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS-sandeep', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]){
             sh 'aws --version'
             
