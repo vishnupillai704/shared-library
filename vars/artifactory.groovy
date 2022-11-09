@@ -11,10 +11,9 @@
         stage("Build") {
             steps {
                 
-                dir('/var/lib/jenkins/workspace/shared_librari_sandeep_ci/devo'){
                 sh "git clone https://github.com/singusandeep/devo"
                
-                }
+                
                 
                 
                 
