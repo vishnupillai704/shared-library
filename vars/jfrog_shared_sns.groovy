@@ -1,4 +1,4 @@
-def call() {
+def jfrogCall() {
     
   pipeline {
      agent any
