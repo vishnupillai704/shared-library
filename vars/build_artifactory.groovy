@@ -9,12 +9,12 @@ pipeline {
     stages {
         stage("Build") {
             steps {
+                dir('/var/lib/jenkins/workspace/shared-library_vish_CI/Devops22'){
                 
-                
-                sh "git clone https://github.com/vishnupillai704/Devops22"
+                sh "git pull https://github.com/vishnupillai704/Devops22"
                 
                
-              
+                }
                 
                 
             }
