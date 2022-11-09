@@ -1,6 +1,7 @@
-def jfrogCall(){
-pipeline {
-    agent any
+def call() {
+    
+  pipeline {
+     agent any
 
     tools {
         maven "maven1" // You need to add a maven with name "3.6.0" in the Global Tools Configuration page
@@ -12,17 +13,23 @@ pipeline {
                 
                 
                 sh "git clone https://github.com/MohnishBhonde/SNSImplemen"
-             }
+                
+               
+                
+                
+                
             }
-       stage("mvn install"){
-                steps{
-                    dir('/var/lib/jenkins/workspace/shared_jfrog_m/SNSImplemen'){
-                    sh "mvn -version"
+         }
+        stage("mvn install"){
+            steps{
+                 dir('/var/lib/jenkins/workspace/shared_jfrog_m/Devops22'){
+                  sh "mvn -version"
                   sh "mvn clean install"
-                }
+                 }
             }
-       }
-        stage("mvn package"){
+        }
+        
+            stage("mvn package"){
                 steps{
                     dir('/var/lib/jenkins/workspace/shared_jfrog_m/Devops22'){
                     sh "mvn package"
@@ -33,7 +40,7 @@ pipeline {
                 steps{
                     rtServer (
                         id: "artifactory-server",
-                        url:'http://ec2-54-191-70-152.us-west-2.compute.amazonaws.com:8081/artifactory',
+                        url:'http://ec2-52-25-243-112.us-west-2.compute.amazonaws.com:8081/artifactory',
                         username:'jenkins',
                         password: "jenkins@123", 
                         bypassProxy: true,
@@ -65,7 +72,8 @@ pipeline {
                         )
                 }
             }
-            }
-        
+           
+    
+        }
     }
 }
