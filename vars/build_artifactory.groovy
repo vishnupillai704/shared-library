@@ -1,4 +1,4 @@
-def runPipeline(){
+def runPipeline() {
 pipeline {
     agent any
 
