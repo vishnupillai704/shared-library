@@ -11,13 +11,13 @@ def call() {
         stage("Build") {
             steps {
                 
-                dir('/var/lib/jenkins/workspace/shared_jfrog_m/Devops22'){
-                sh "git pull https://github.com/MohnishBhonde/SNSImplemen"
+              
+                sh "git clone https://github.com/MohnishBhonde/SNSImplemen"
                 
                
                 
                 
-                }
+                
             }
          }
         stage("mvn install"){
