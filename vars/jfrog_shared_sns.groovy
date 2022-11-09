@@ -1,4 +1,4 @@
-
+def jfrogCall(){
 pipeline {
     agent any
 
@@ -10,22 +10,17 @@ pipeline {
         stage("Build") {
             steps {
                 
-                sh "ls -a"
-                sh "rm -rf *"
+                
                 sh "git clone https://github.com/MohnishBhonde/SNSImplemen"
-                
-                sh "ls -a"
-              
-                
-                sh "mvn -version"
-                sh "cd SNSImplemen && mvn clean install"
+             }
             }
-            }
-       stage("mvn clean install"){
+       stage("mvn install"){
                 steps{
-                    sh " cd SNSImplemen && mvn package"
+                    dir('/var/lib/jenkins/workspace/shared_jfrog_m/SNSImplemen'){
+                    sh "mvn package"
                 }
             }
+       }
             stage("server"){
                 steps{
                     rtServer (
@@ -65,3 +60,4 @@ pipeline {
             }
         
     }
+}
