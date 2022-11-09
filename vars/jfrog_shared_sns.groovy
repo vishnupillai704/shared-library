@@ -12,7 +12,7 @@ def call() {
             steps {
                 
                 dir('/var/lib/jenkins/workspace/shared_jfrog_m/Devops22'){
-                sh "git clone https://github.com/MohnishBhonde/SNSImplemen"
+                sh "git pull https://github.com/MohnishBhonde/SNSImplemen"
                 
                
                 
