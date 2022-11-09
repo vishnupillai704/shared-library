@@ -19,14 +19,14 @@ def call() {
 
             stage('terraform init') {
         steps {   
-             dir('/var/lib/jenkins/workspace/shared-library_vish/terraform') {                                           
+             dir('/var/lib/jenkins/workspace/shared-library_vishnu/terraform') {                                           
             sh 'terraform init'
              }
          }
     }
         stage('terraform apply') {
         steps {
-            dir('/var/lib/jenkins/workspace/shared-library_vish/terraform') { 
+            dir('/var/lib/jenkins/workspace/shared-library_vishnu/terraform') { 
             withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]){
             sh 'aws --version'
             
@@ -38,7 +38,7 @@ def call() {
     } 
        stage('terraform destroy') {
         steps {   
-             dir('/var/lib/jenkins/workspace/shared-library_vish/terraform') {
+             dir('/var/lib/jenkins/workspace/shared-library_vishnu/terraform') {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]){
               sh 'terraform destroy -force -var AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -var AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY'
                 }
