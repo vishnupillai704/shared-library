@@ -22,7 +22,7 @@
          }
         stage("mvn install"){
             steps{
-                 dir('/var/lib/jenkins/workspace/shared-library_vish_CI/Devops22'){
+                 dir('/var/lib/jenkins/workspace/shared-library_vishnu_CI/Devops22'){
                   sh "mvn -version"
                   sh "mvn clean install"
                  }
@@ -31,7 +31,7 @@
         
             stage("mvn package"){
                 steps{
-                    dir('/var/lib/jenkins/workspace/shared-library_vish_CI/Devops22'){
+                    dir('/var/lib/jenkins/workspace/shared-library_vishnu_CI/Devops22'){
                     sh "mvn package"
                     }
                 }
