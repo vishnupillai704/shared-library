@@ -1,6 +1,7 @@
-def runPipeline() {
-pipeline {
-    agent any
+ def call() {
+    
+  pipeline {
+     agent any
 
     tools {
         maven "maven1" // You need to add a maven with name "3.6.0" in the Global Tools Configuration page
