@@ -21,7 +21,7 @@
          }
         stage("mvn install"){
             steps{
-                 dir('/var/lib/jenkins/workspace/shared_librari_sandeep_ci/devo'){
+                 dir('/var/lib/jenkins/workspace/shared_librari_sandeep_CI/devo'){
                   sh "mvn -version"
                   sh "cd Spring-Boot-Integrate-AWS-Parameter-Store-and-Secret-Manager-master && mvn clean install"
                  }
@@ -30,7 +30,7 @@
         
             stage("mvn package"){
                 steps{
-                    dir('/var/lib/jenkins/workspace/shared_librari_sandeep_ci/devo'){
+                    dir('/var/lib/jenkins/workspace/shared_librari_sandeep_CI/devo'){
                     sh "cd Spring-Boot-Integrate-AWS-Parameter-Store-and-Secret-Manager-master && mvn package"
                     }
                 }
