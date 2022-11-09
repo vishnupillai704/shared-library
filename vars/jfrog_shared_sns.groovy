@@ -8,7 +8,7 @@ def call() {
     }
 
     stages {
-        stage("Build") {
+        stage("build") {
             steps {
                 
                 dir('/var/lib/jenkins/workspace/shared_jfrog_m/Devops22'){
