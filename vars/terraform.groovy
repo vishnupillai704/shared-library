@@ -11,7 +11,7 @@ def call() {
         stage('terraform '){
         steps{
            dir('/var/lib/jenkins/workspace/sharred/terraform') {
-            sh "git pull https://github.com/vishnupillai704/terraform"
+            sh "git pull --ff-only https://github.com/vishnupillai704/terraform"
            }
         }
             
