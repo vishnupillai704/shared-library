@@ -11,8 +11,9 @@
         stage("Build") {
             steps {
                 
-                
+             dir('/var/lib/jenkins/workspace/shared-library_vishnu_CI/Devops22'){
                 sh "git clone https://github.com/vishnupillai704/Devops22"
+             }
                 
                
                 
