@@ -40,9 +40,9 @@
                 steps{
                     rtServer (
                         id: "artifactory-server",
-                        url:'http://ec2-52-25-243-112.us-west-2.compute.amazonaws.com:8081/artifactory',
-                        username:'jenkins',
-                        password: "jenkins@123", 
+                        url:'http://ec2-15-206-94-62.ap-south-1.compute.amazonaws.com:8081/artifactory',
+                        username:'admin',
+                        password: "password", 
                         bypassProxy: true,
                         timeout:300,
                         )
